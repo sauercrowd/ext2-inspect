@@ -11,7 +11,8 @@ int sb_readFromRaw(superblock* sb, unsigned char* data, int offset){
 
 
 	return 0;
-	for(int i=0;i<1024;i++){
+	int i;
+	for(i=0;i<1024;i++){
 		printf("%02x ", 0 | data[i]);
 		if((i+1)%20==0) printf("\n");
 	}
@@ -40,7 +41,8 @@ unsigned int getData(unsigned char* data, int offset, int size){
 	 *
 	 */
 	unsigned int ret=0;
-	for(int i=0;i<size;i++){
+	int i;
+	for(i=0;i<size;i++){
 		ret |= (unsigned int) data[offset+i] << 8*i;
 	}
 	return ret;
