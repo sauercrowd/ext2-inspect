@@ -1,9 +1,0 @@
-box: deifwpt/build-essential
-build:
-  steps:
-    - script:
-        name: build
-        code: make
-    - script:
-        name: run
-        code: ./ext2-inspect --help
