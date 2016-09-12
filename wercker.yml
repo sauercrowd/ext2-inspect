@@ -1,4 +1,4 @@
-box: alljoynsville/build-essential
+box: deifwpt/build-essential
 build:
   steps:
     - script:
