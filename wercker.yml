@@ -1,4 +1,4 @@
-box: debian
+box: alljoynsville/build-essential
 build:
   steps:
     - script:
