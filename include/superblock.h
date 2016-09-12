@@ -69,7 +69,7 @@ struct superblock{
 
 typedef struct superblock superblock;
 
-int sb_readFromRaw(superblock* sb, char* data, int offset);
+int sb_readFromRaw(superblock* sb, unsigned char* data, int offset);
 void sb_printInfo(superblock* sb);
 
 #endif
