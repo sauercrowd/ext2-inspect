@@ -1,0 +1,9 @@
+box: debian
+build:
+  steps:
+    - script:
+        name: build
+        code: make
+    - script:
+        name: run
+        code: ./ext2-inspect --help
