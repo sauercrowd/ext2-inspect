@@ -30,21 +30,17 @@ int main(int argc, char** argv){
 	}
 	
 	//reading first 2048 bytes to get to the superblock, located at an 1024 offset.
-	unsigned char *file_buffer = malloc(2048);
-	int read_res = read(fh, file_buffer, 2048);
+	unsigned char *file_buffer = malloc(1024);
+	int read_res = pread(fh, file_buffer, 1024,1024);
 	
 	if(read_res == -1){
-		fprintf(stderr, "Could not read 2048 bytes from file.\n");
+		fprintf(stderr, "Could not read 1024 bytes from file.\n");
 		return -1;
 	}
 
-	//just get the superblock, throw the bootloader stuff away.	
-	unsigned char *buffer = malloc(1024);
-	buffer = memcpy(buffer, &file_buffer[1024], 1024);
-	free(file_buffer);
 
 	superblock* sb = malloc(sizeof(superblock));
-	sb_readFromRaw(sb, buffer, 0);
+	sb_readFromRaw(sb, file_buffer, 0);
 
 	close(fh);
 	return 0;
