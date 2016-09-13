@@ -1,3 +1,4 @@
 test:
         override:
                 - make
+                - mv ext2-inspect $CIRCLE_ARTIFACTS 
