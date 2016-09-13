@@ -19,13 +19,6 @@ int sb_readFromRaw(superblock* sb, unsigned char* data, int offset){
 	printf("\n");
 	return 0;
 
-	unsigned char *test = malloc(sizeof(char)*4);
-	test = "ABCD";
-	printf("as char array: [%d, %d, %d, %d]\n", 
-			(int) 'A', (int) 'B', (int) 'C', (int) 'D');
-	printf("as unsigned: %d\n", getData(test, 0, 4));
-	unsigned int ret = getData(test,0,4);
-	printf("Back as char array: %d\n", (char) ret);
 	sb->s_inodes_count = 0;
 	return 0;
 }

@@ -23,14 +23,20 @@ int main(int argc, char** argv){
 
 	int fh = open("/home/jonas/Dokumente/03_uni/04_betriebssysteme/ext2fs.img",
 		O_RDONLY);
+
 	if(fh == -1){
-		//TODO: eror message
+		fprintf(stderr, "Could not open file.\n");
 		return -1;
 	}
 	
 	//reading first 2048 bytes to get to the superblock, located at an 1024 offset.
 	unsigned char *file_buffer = malloc(2048);
 	int read_res = read(fh, file_buffer, 2048);
+	
+	if(read_res == -1){
+		fprintf(stderr, "Could not read 2048 bytes from file.\n");
+		return -1;
+	}
 
 	//just get the superblock, throw the bootloader stuff away.	
 	unsigned char *buffer = malloc(1024);
