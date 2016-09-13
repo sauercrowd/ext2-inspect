@@ -42,6 +42,7 @@ int main(int argc, char** argv){
 	superblock* sb = malloc(sizeof(superblock));
 	sb_readFromRaw(sb, file_buffer, 0);
 
+	free(file_buffer);
 	close(fh);
 	return 0;
 }
