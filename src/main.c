@@ -8,18 +8,17 @@
 #include <string.h>
 
 #include "superblock.h"
-
-const char *argp_program_version = 
-	"ext2-inspect 0.0.1";
-const char * argp_program_bug_address = 
-	"jonadev95@posteo.org";
-
-const char doc[] = 
-	"ext2-inspect -- a program for inspecting ext2 filesystems on the fly.";
+#include "argparsing.h"
 
 int main(int argc, char** argv){
-	struct argp args = {0,0,0,doc};
-	argp_parse(&args, argc, argv, 0, 0,0);
+	arguments args;
+	
+	//defaults
+	args.verbose=0;
+
+	parse(&args, argc, argv);
+	
+	printf("%s\n",args.verbose == 1 ? "VERBOSE" : "NON-VERBOSE");
 
 	int fh = open("/home/jonas/Dokumente/03_uni/04_betriebssysteme/ext2fs.img",
 		O_RDONLY);
